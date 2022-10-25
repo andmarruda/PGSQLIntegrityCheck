@@ -5,7 +5,7 @@ class sqls:
     __filterClass = "relpersistence='p'"
     __pgClass = """
         SELECT 
-            pn.nspname || '.' || pc.relname as obj 
+            '"' || pn.nspname || '"."' || pc.relname || '"' as obj 
         FROM 
             pg_class pc 
             JOIN pg_namespace pn ON pn.oid=pc.relnamespace 
